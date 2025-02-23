@@ -3,7 +3,7 @@ import { useState } from "react";
 function App() {
   const [count, setCount] = useState(0);
 
-  return <>{count}</>;
+  return <div>{count}</div>;
 }
 
 export default App;
