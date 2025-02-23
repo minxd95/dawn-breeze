@@ -1,13 +1,10 @@
 import { contextBridge } from "electron";
 import { electronAPI } from "@electron-toolkit/preload";
+import type { Api } from "./preload.d";
 
-type IpcApiResponse<T = void> = Promise<{
-  success: boolean;
-  data?: T;
-  message?: string;
-}>;
 // Custom APIs for renderer
-const api = {};
+const api: Api = {};
+
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
 // just add to the DOM global.
@@ -20,8 +17,6 @@ if (process.contextIsolated) {
     console.error(error);
   }
 } else {
-  // @ts-expect-error (define in dts)
   window.electron = electronAPI;
-  // @ts-expect-error (define in dts)
   window.api = api;
 }
