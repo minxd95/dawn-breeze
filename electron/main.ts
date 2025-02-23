@@ -6,11 +6,15 @@ function createWindow(): void {
   // Create the browser window.
   const preloadPath = path.join(__dirname, "../preload/index.mjs");
   const mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 800,
     height: 640,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === "linux" ? {} : {}), //app-icon
+    transparent: true,
+    vibrancy: "under-window",
+    visualEffectState: "active",
+    frame: false,
     webPreferences: {
       preload: preloadPath,
       contextIsolation: true,
