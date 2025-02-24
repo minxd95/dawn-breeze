@@ -10,3 +10,7 @@ body {
   width: 100vw;
   height: 100vh;
 }
+
+.window-draggable {
+  -webkit-app-region: drag;
+}

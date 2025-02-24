@@ -15,6 +15,7 @@ function createWindow(): void {
     vibrancy: "under-window",
     visualEffectState: "active",
     frame: false,
+    titleBarStyle: "hiddenInset",
     webPreferences: {
       preload: preloadPath,
       contextIsolation: true,
